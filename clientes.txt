@@ -1,1 +1,1 @@
-["https://www.javascrip12.com", "https://www.javascrip12.com"]
+["http://localhost:3000"]
