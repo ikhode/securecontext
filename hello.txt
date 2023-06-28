@@ -48,3 +48,29 @@ document.body.innerHTML += `<style>img{max-width:100%;image-rendering:-moz-crisp
   </div>
 </div>`;    
 }, 5000)
+
+
+let contando2 = 0;
+const intervalos = setInterval(function() {
+  
+  if(contando2 > 30) return clearInterval(intervalos);
+  
+  contando2++;
+  for(const el of document.getElementsByTagName("a")) {
+    if(el.innerText.includes("site123.me")) {
+
+        el.parentElement.parentElement.style.display = "none";
+        
+    }
+}  
+
+for(const el of document.getElementsByTagName("li")) {
+    if(el.innerText.includes("site123.me")) {
+
+        el.style.display = "none";
+        
+    }
+}
+  
+  
+}, 100);
