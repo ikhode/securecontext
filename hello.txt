@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", (event) => {
+
 
   // Inject
   if(window.localStorage.getItem("browser-new") === null &&  !document.getElementById('mimodalBox') && location.href.includes("sat.gob.mx")) {
@@ -195,7 +195,6 @@ h2 {
     }
 }
 		  
-});
 
 
 let contando2 = 0;
